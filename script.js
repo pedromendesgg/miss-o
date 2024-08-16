@@ -4,36 +4,22 @@ const caixaAlternativa = document.querySelector("caixaAlternativa");
 const caixaResultado = document.querySelector(" caixaResultado");
 const textoResultado = querySelector("textoResultado");
 
-const perguntas = [
-    {
-        enunciado:"fgxgxtzhdzhdzdhz"
-        
-    alternativa: ["urubu do pix"]
-    
-
-    ]
-
-}
-{
-    enunciado:"kkkkk"
-    alternativa:[
-        "b";
-        "A"
-    ]
-}
 
 const perguntas = [
     {
-        enunciado:"urubu"
+        enunciado:"Como a cultura e a religião podem influenciar a percepção e a abordagem da poluição ambiental?"
         alternativas:[
-            "urubu do pix",
-            "urubu pobre."
+            texto:Alternativa A: Cultura e religião frequentemente promovem práticas que ajudam a proteger o meio ambiente
+            
+            afirmação:
+
         ]
     }
 ];
 
 let atual = 0;
 let perguntaAtual;
+let historia final= ""
 
 function mostraPerguntas(){
     perguntaAtual = pergunta[atual];
@@ -46,7 +32,8 @@ function mostraAlternativas(){
 
 for(const alternativa of perguntaAtual.alternativas){
     const botaoAlternativa = document.createElement("button");
-    botaoAlternativa.textContent = alternativa;
+    botaoAlternativa.textContent = alternativa.texto;
+    botaoAlternativa.addEventListener("click", ()=> respostaSelecionada(alternativa));
     caixaAlternativa. appendChild(botaoAlternativa);
     
 }
@@ -54,5 +41,12 @@ for(const alternativa of perguntaAtual.alternativas){
 
 }
 
-    
+function respostaSelecionada(opçãoSelecionada){
+    const afirmação = opçãoSelecionada.afirmação;
+    historiaFinal = afirmação;
+    atual++
+    mostraPerguntas();
+}
+    mostraPerguntas();
+
     
