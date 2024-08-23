@@ -1,52 +1,62 @@
 const caixaPrincipal = document.querySelector(".caixa-principal");
-const caixaPerguntas = document.querySelector("caixaPerguntas");
-const caixaAlternativa = document.querySelector("caixaAlternativa");
-const caixaResultado = document.querySelector(" caixaResultado");
-const textoResultado = querySelector("textoResultado");
-
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado:"Como a cultura e a religião podem influenciar a percepção e a abordagem da poluição ambiental?"
+        enunciado:"Como a poluição ambiental pode impactar práticas culturais e religiosas em comunidades tradicionias?"
         alternativas:[
-            texto:Alternativa A: Cultura e religião frequentemente promovem práticas que ajudam a proteger o meio ambiente
+            {
+                texto:"A poluição pode levar à deterioração de locais sagrados, comprometendo a realização de rituais?"
+                afirmação:"A poluição de rios e lagos pode prejudicar rituais de purificação realizados com água em várias culturas e religiões"
+            }
+           {
+            texto:"A poluição não tem impacto significativo nas práticas culturais e religiosas, pouis elas ocorrem independente do ambiente."
+            afirmação:"O desmatamento e a poluição do ar podem afetar a preservação de sitios arqueológicos e templos, qye são importantes para a identidade cultural e religiosa de muitas comunidades.  "
+           }
             
-            afirmação:
-
+           
         ]
     }
 ];
 
 let atual = 0;
 let perguntaAtual;
-let historia final= ""
+let historiaFinal = "";
 
-function mostraPerguntas(){
-    perguntaAtual = pergunta[atual];
-    caixaPerguntas.textContent = perguntaAtual. enunciado;
-    caixaAlternativa.textContent = "";
+function mostraPergunta() {
+    if(atual >= perguntas.length){
+        mostraResultado();
+        return;
+    }
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
+    textoResultado.textContent = "";
     mostraAlternativas();
 }
 
 function mostraAlternativas(){
-
-for(const alternativa of perguntaAtual.alternativas){
-    const botaoAlternativa = document.createElement("button");
-    botaoAlternativa.textContent = alternativa.texto;
-    botaoAlternativa.addEventListener("click", ()=> respostaSelecionada(alternativa));
-    caixaAlternativa. appendChild(botaoAlternativa);
-    
+    for(const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener('click', ()=> respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativas);        
+    }
 }
-
-
-}
-
-function respostaSelecionada(opçãoSelecionada){
-    const afirmação = opçãoSelecionada.afirmação;
-    historiaFinal = afirmação;
+function respostaSelecionada(opcaoSelecionada){
+    const afirmacao = opcaoSelecionada.afirmacao;
+    historiaFinal = afirmacao;
     atual++
-    mostraPerguntas();
+    mostraPergunta();
 }
-    mostraPerguntas();
 
-    
+mostraPergunta();
+
+function mostraResultado(){
+    caixaPerguntas.textContent = "Em 2030...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
+}
