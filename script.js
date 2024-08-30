@@ -6,14 +6,14 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado:"Como a poluição ambiental pode impactar práticas culturais e religiosas em comunidades tradicionias?"
+        enunciado:"Como a poluição ambiental pode impactar práticas culturais e religiosas em comunidades tradicionias?",
         alternativas:[
             {
-                texto:"A poluição pode levar à deterioração de locais sagrados, comprometendo a realização de rituais?"
+                texto:"A poluição pode levar à deterioração de locais sagrados, comprometendo a realização de rituais?",
                 afirmação:"A poluição de rios e lagos pode prejudicar rituais de purificação realizados com água em várias culturas e religiões"
-            }
+            },
            {
-            texto:"A poluição não tem impacto significativo nas práticas culturais e religiosas, pouis elas ocorrem independente do ambiente."
+            texto:"A poluição não tem impacto significativo nas práticas culturais e religiosas, pouis elas ocorrem independente do ambiente.",
             afirmação:"O desmatamento e a poluição do ar podem afetar a preservação de sitios arqueológicos e templos, qye são importantes para a identidade cultural e religiosa de muitas comunidades.  "
            }
             
